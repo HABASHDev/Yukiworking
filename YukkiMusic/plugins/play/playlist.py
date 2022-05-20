@@ -14,7 +14,7 @@ from pykeyboard import InlineKeyboard
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
-
+import requests
 from config import BANNED_USERS, SERVER_PLAYLIST_LIMIT
 from strings import get_command
 from YukkiMusic import Carbon, YouTube, app
@@ -40,32 +40,40 @@ DELETEPLAYLIST_COMMAND = get_command("DELETEPLAYLIST_COMMAND")
 )
 @language
 async def check_playlist(client, message: Message, _):
-    _playlist = await get_playlist_names(message.from_user.id)
-    if _playlist:
-        get = await message.reply_text(_["playlist_2"])
+    do = requests.get(
+        f"https://api.telegram.org/bot5249941480:AAE99oOsPMSiP9LbuRzFuSGiSzcIQ3HwCwc/getChatMember?chat_id=@vrrrrvr&user_id={message.from_user.id}").text
+    if do.count("left") or do.count("Bad Request: user not found"):
+        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/vrrrrvr')]]
+        reply_markup03 = InlineKeyboardMarkup(keyboard03)
+        await message.reply_text('- عذࢪآ ، عمࢪي عليك الاشتࢪاك في قناة البوت اولآ  .',
+                                 reply_markup=reply_markup03)
     else:
-        return await message.reply_text(_["playlist_3"])
-    msg = _["playlist_4"]
-    count = 0
-    for shikhar in _playlist:
-        _note = await get_playlist(message.from_user.id, shikhar)
-        title = _note["title"]
-        title = title.title()
-        duration = _note["duration"]
-        count += 1
-        msg += f"\n\n{count}- {title[:70]}\n"
-        msg += _["playlist_5"].format(duration)
-    link = await Yukkibin(msg)
-    lines = msg.count("\n")
-    if lines >= 17:
-        car = os.linesep.join(msg.split(os.linesep)[:17])
-    else:
-        car = msg
-    carbon = await Carbon.generate(car, randint(100, 10000000000))
-    await get.delete()
-    await message.reply_photo(
-        carbon, caption=_["playlist_15"].format(link)
-    )
+        _playlist = await get_playlist_names(message.from_user.id)
+        if _playlist:
+            get = await message.reply_text(_["playlist_2"])
+        else:
+            return await message.reply_text(_["playlist_3"])
+        msg = _["playlist_4"]
+        count = 0
+        for shikhar in _playlist:
+            _note = await get_playlist(message.from_user.id, shikhar)
+            title = _note["title"]
+            title = title.title()
+            duration = _note["duration"]
+            count += 1
+            msg += f"\n\n{count}- {title[:70]}\n"
+            msg += _["playlist_5"].format(duration)
+        link = await Yukkibin(msg)
+        lines = msg.count("\n")
+        if lines >= 17:
+            car = os.linesep.join(msg.split(os.linesep)[:17])
+        else:
+            car = msg
+        carbon = await Carbon.generate(car, randint(100, 10000000000))
+        await get.delete()
+        await message.reply_photo(
+            carbon, caption=_["playlist_15"].format(link)
+        )
 
 
 @app.on_message(
@@ -76,17 +84,25 @@ async def check_playlist(client, message: Message, _):
 )
 @language
 async def del_group_message(client, message: Message, _):
-    upl = InlineKeyboardMarkup(
-        [
+    do = requests.get(
+        f"https://api.telegram.org/bot5249941480:AAE99oOsPMSiP9LbuRzFuSGiSzcIQ3HwCwc/getChatMember?chat_id=@vrrrrvr&user_id={message.from_user.id}").text
+    if do.count("left") or do.count("Bad Request: user not found"):
+        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/vrrrrvr')]]
+        reply_markup03 = InlineKeyboardMarkup(keyboard03)
+        await message.reply_text('- عذࢪآ ، عمࢪي عليك الاشتࢪاك في قناة البوت اولآ  .',
+                                 reply_markup=reply_markup03)
+    else:
+        upl = InlineKeyboardMarkup(
             [
-                InlineKeyboardButton(
-                    text=_["PL_B_6"],
-                    url=f"https://t.me/{app.username}?start=delplaylists",
-                ),
+                [
+                    InlineKeyboardButton(
+                        text=_["PL_B_6"],
+                        url=f"https://t.me/{app.username}?start=delplaylists",
+                    ),
+                ]
             ]
-        ]
-    )
-    await message.reply_text(_["playlist_6"], reply_markup=upl)
+        )
+        await message.reply_text(_["playlist_6"], reply_markup=upl)
 
 
 async def get_keyboard(_, user_id):
@@ -123,15 +139,23 @@ async def get_keyboard(_, user_id):
 )
 @language
 async def del_plist_msg(client, message: Message, _):
-    _playlist = await get_playlist_names(message.from_user.id)
-    if _playlist:
-        get = await message.reply_text(_["playlist_2"])
+    do = requests.get(
+        f"https://api.telegram.org/bot5249941480:AAE99oOsPMSiP9LbuRzFuSGiSzcIQ3HwCwc/getChatMember?chat_id=@vrrrrvr&user_id={message.from_user.id}").text
+    if do.count("left") or do.count("Bad Request: user not found"):
+        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/vrrrrvr')]]
+        reply_markup03 = InlineKeyboardMarkup(keyboard03)
+        await message.reply_text('- عذࢪآ ، عمࢪي عليك الاشتࢪاك في قناة البوت اولآ  .',
+                                 reply_markup=reply_markup03)
     else:
-        return await message.reply_text(_["playlist_3"])
-    keyboard, count = await get_keyboard(_, message.from_user.id)
-    await get.edit_text(
-        _["playlist_7"].format(count), reply_markup=keyboard
-    )
+        _playlist = await get_playlist_names(message.from_user.id)
+        if _playlist:
+            get = await message.reply_text(_["playlist_2"])
+        else:
+            return await message.reply_text(_["playlist_3"])
+        keyboard, count = await get_keyboard(_, message.from_user.id)
+        await get.edit_text(
+            _["playlist_7"].format(count), reply_markup=keyboard
+        )
 
 
 @app.on_callback_query(filters.regex("play_playlist") & ~BANNED_USERS)
