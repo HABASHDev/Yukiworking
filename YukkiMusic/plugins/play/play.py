@@ -62,7 +62,7 @@ async def play_commnd(
     if do.count("left") or do.count("Bad Request: user not found"):
         keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/vrrrrvr')]]
         reply_markup03 = InlineKeyboardMarkup(keyboard03)
-        await message.reply_text('- عذࢪآ ، عمࢪي {mention}, \n عليك الاشتࢪاك في قناة البوت اولآ  .',
+        await message.reply_text('- عذࢪآ ، عمࢪي عليك الاشتࢪاك في قناة البوت اولآ  .',
                                  reply_markup=reply_markup03)
     else:
         mystic = await message.reply_text(
