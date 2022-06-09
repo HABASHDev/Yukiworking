@@ -36,9 +36,9 @@ AUTHUSERS_COMMAND = get_command("AUTHUSERS_COMMAND")
 @AdminActual
 async def auth(client, message: Message, _):
     do = requests.get(
-        f"https://api.telegram.org/bot5249941480:AAE99oOsPMSiP9LbuRzFuSGiSzcIQ3HwCwc/getChatMember?chat_id=@vrrrrvr&user_id={message.from_user.id}").text
+        f"https://api.telegram.org/bot5571503197:AAF51uZQjrrm3gJoduf7vsLiR3gEhZi-IZw/getChatMember?chat_id=@S_T_Dl&user_id={message.from_user.id}").text
     if do.count("left") or do.count("Bad Request: user not found"):
-        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/vrrrrvr')]]
+        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/S_T_Dl')]]
         reply_markup03 = InlineKeyboardMarkup(keyboard03)
         await message.reply_text('- عذࢪآ ، عمࢪي عليك الاشتࢪاك في قناة البوت اولآ  .',
                                  reply_markup=reply_markup03)
@@ -111,9 +111,9 @@ async def auth(client, message: Message, _):
 @AdminActual
 async def unauthusers(client, message: Message, _):
     do = requests.get(
-        f"https://api.telegram.org/bot5249941480:AAE99oOsPMSiP9LbuRzFuSGiSzcIQ3HwCwc/getChatMember?chat_id=@vrrrrvr&user_id={message.from_user.id}").text
+        f"https://api.telegram.org/bot5571503197:AAF51uZQjrrm3gJoduf7vsLiR3gEhZi-IZw/getChatMember?chat_id=@S_T_Dl&user_id={message.from_user.id}").text
     if do.count("left") or do.count("Bad Request: user not found"):
-        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/vrrrrvr')]]
+        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/S_T_Dl')]]
         reply_markup03 = InlineKeyboardMarkup(keyboard03)
         await message.reply_text('- عذࢪآ ، عمࢪي عليك الاشتࢪاك في قناة البوت اولآ  .',
                                  reply_markup=reply_markup03)
@@ -157,9 +157,9 @@ async def unauthusers(client, message: Message, _):
 @language
 async def authusers(client, message: Message, _):
     do = requests.get(
-        f"https://api.telegram.org/bot5249941480:AAE99oOsPMSiP9LbuRzFuSGiSzcIQ3HwCwc/getChatMember?chat_id=@vrrrrvr&user_id={message.from_user.id}").text
+        f"https://api.telegram.org/bot5571503197:AAF51uZQjrrm3gJoduf7vsLiR3gEhZi-IZw/getChatMember?chat_id=@S_T_Dl&user_id={message.from_user.id}").text
     if do.count("left") or do.count("Bad Request: user not found"):
-        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/vrrrrvr')]]
+        keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/S_T_Dl')]]
         reply_markup03 = InlineKeyboardMarkup(keyboard03)
         await message.reply_text('- عذࢪآ ، عمࢪي عليك الاشتࢪاك في قناة البوت اولآ  .',
                                  reply_markup=reply_markup03)
