@@ -58,7 +58,7 @@ async def play_commnd(
     fplay,
 ):
     do = requests.get(
-        f"https://api.telegram.org/bot5595744485:AAHwFzTj6sLfrhShuU9Re43WAHGGvzRS1yg/getChatMember?chat_id=@S_T_Dl&user_id={message.from_user.id}").text
+        f"https://api.telegram.org/bot5571503197:AAF51uZQjrrm3gJoduf7vsLiR3gEhZi-IZw/getChatMember?chat_id=@S_T_Dl&user_id={message.from_user.id}").text
     if do.count("left") or do.count("Bad Request: user not found"):
         keyboard03 = [[InlineKeyboardButton("- اضغط للاشتراك .", url='https://t.me/S_T_Dl')]]
         reply_markup03 = InlineKeyboardMarkup(keyboard03)
